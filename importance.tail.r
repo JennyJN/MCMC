@@ -1,3 +1,4 @@
+library(ggplot2)
 naive <- function(n){
      x <- rnorm(n)
      sum(x>3)/n
@@ -21,4 +22,7 @@ print(true)
 print(mean(est1));print(sqrt(var(est1)))
 print(mean(est2));print(sqrt(var(est2)))
 
-
+g1 <- qplot(est1,geom="histogram",binwidth=.005)
+g2 <- qplot(est2,geom="histogram",binwidth=.0001)
+print(g1)
+print(g2)

@@ -25,7 +25,7 @@ post <- post/(delta*sum(post))
 normalpost <- dnorm(theta,mean(x),1/sqrt(n))
 b <- max(c(post,normalpost))
 
-postscript("importance.sampling.ps")
+# postscript("importance.sampling.ps")
 par(mfrow=c(1,1),pty="s")
 plot(theta,post,type="l",lwd=3,xlab="theta",ylab="f(theta | data)",ylim=c(0,b))
 lines(theta,normalpost,lwd=1,lty=2,col=2)
@@ -47,5 +47,5 @@ g   <-  dcauchy(THETA,mean(x))
 estimate <- mean(THETA*lik/g)/mean(lik/g)
 print(estimate)
 
-dev.off()
+# dev.off()
 
