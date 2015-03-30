@@ -15,7 +15,7 @@ right = quantile(delta$diff,.975)
 print(c(left,right))
 
 prob=seq(-1,1,.2)
-qplot(delta$diff, geom="histogram", binwidth=.05,
+gg <- qplot(delta$diff, geom="histogram", binwidth=.05,
       main = "this is the chart", 
       xlab = "p",  
       fill=I("blue"), 
@@ -23,15 +23,24 @@ qplot(delta$diff, geom="histogram", binwidth=.05,
       alpha=I(.2),
       xlim=c(-1,1)
      )
+print(gg)
 
-gg<-ggplot(data=delta$diff, geom_histogram(aes(x=diff),binwidth=.1))
+gg <- qplot(delta$diff, geom="histogram", binwidth=.05,
+            main = "this is the chart", 
+            xlab = "p",  
+          #  fill=I("blue"), 
+          #  col=I("red"), 
+          #  alpha=I(.2),
+          #  xlim=c(-1,1)
+)
 
-postscript("two.binom.sim.pdf",horizontal=F)
+
+
+postscript("two.binom.sim.eps",horizontal=F)
 #postscript("two.binom.sim.eps",horizontal=F,onefile=F,print.it=F)
 # hist(diff,xlab="",ylab="",main="",cex=2,density=5,
 #    prob=T,lwd=3,xaxt="n",yaxt="n",bty="n")
 # axis(1,at=c(-0.6,0,0.6),cex.axis=2)
-
 print(gg)
 dev.off()
  
