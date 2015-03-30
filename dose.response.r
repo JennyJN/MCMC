@@ -1,12 +1,12 @@
-postscript("dose.response.ps")
-par(mfrow=c(2,2))
+
 x <- 1:10
 n <- rep(15,10)
 p <- exp(x-5)
 p <- p/(1+p)
 y <- rbinom(10,n,p)
 print(y)
-plot(x,y/n,xlab="dose",ylab="proportion who died")
+gg <- plot(x,y/n,xlab="dose",ylab="proportion who died")
+print(gg)
 B <- 10000
 p <- matrix(0,B,10)
 check <- rep(0,B)
@@ -35,8 +35,12 @@ print(B)
 matplot(x,t(p),ylab="",xlab="dose")
 plot(table(delta)/B,xlab="LD50",ylab="f(delta | data)",type="h",lwd=3,
      xlim=c(1,10))
+
+
+postscript("dose.response.ps")
+par(mfrow=c(2,2))
+plot(x,y/n,xlab="dose",ylab="proportion who died")
+matplot(x,t(p),ylab="",xlab="dose")
+plot(table(delta)/B,xlab="LD50",ylab="f(delta | data)",type="h",lwd=3,
+     xlim=c(1,10))
 dev.off()
-
-
-
-
