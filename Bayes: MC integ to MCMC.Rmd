@@ -1,0 +1,74 @@
+---
+title: 'Bayes: MC integration to MCMC'
+header-includes:
+  - \usepackage[fleqn]{amsmath}
+output: html_document
+
+---
+  
+
+>  Bayesian      and       frequentist methods  
+
+> Data: $X$        Parameters: $\Theta$
+
+
+
+#### Frequentist
+
+* The data are random.  The parameters are fixed.
+* ML estimation fines $\Theta$ to maximize the likelihood $f(x^{n}|\theta)$
+* Cannot make probability statements about parameters.  Instead, make statements about the performance of the estimator.
+
+
+
+#### Bayesian
+
+* Data are fixed. Parameters are random.
+* Inferences are made on the basis of the posterior $(x^{n}|\theta)$
+* 
+
+
+
+*****
+######
+
+# Bayesian Basics
+
+Posterior is proportional to Likelihood times Prior  
+
+$$
+\begin{flalign}
+f(\theta |x^{n}) &=\frac{f(x^{n}|\theta)f(\theta )}{\int f(x^{n}|\theta)f(\theta )d\theta }\\
+&=\frac{\mathit{L_{n}(\theta )f(\theta )}}{c_{n}}\\
+\end{flalign}
+$$
+
+where 
+$$
+c_{n}=\int{\mathit{L_{n}(\theta )f(\theta )}}d\theta 
+$$
+
+Posterior: $f(\theta |x^{n})$  
+Prior:  $f(\theta )$  
+Likelihood:  $f(x^{n}|\theta)$  
+
+
+
+
+
+
+
+
+
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
